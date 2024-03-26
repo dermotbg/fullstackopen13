@@ -5,10 +5,10 @@ services:
     build: 
       context: .
       dockerfile: dev.dockerfile
+    volumes:
+      - ./:/usr/src/app
     ports:
       - 3001:3001
-    # volumes:
-    #   - ./:/usr/src/app
 
   db:
     image: postgres
