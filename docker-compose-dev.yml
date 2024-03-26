@@ -1,0 +1,25 @@
+services:
+  express-server:
+    container_name: server
+    image: express-server
+    build: 
+      context: .
+      dockerfile: dev.dockerfile
+    ports:
+      - 3001:3001
+    # volumes:
+    #   - ./:/usr/src/app
+
+  db:
+    image: postgres
+    container_name: postgres_db
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=mysecretdevpassword
+    
+
+volumes:
+  db_data:
