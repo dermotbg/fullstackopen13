@@ -1,40 +1,36 @@
 const router = require('express').Router()
 
 const { Blog } = require('../models')
+const { blogFinder } = require('../util/middleware')
 
 router.get('/', async (req, resp) => {
   const blogs = await Blog.findAll()
-  console.log(JSON.stringify(blogs, null, 2))
   return resp.json(blogs)
 })
 
-router.put('/:id', async (req, resp) => {
-    const blogToUpdate = await Blog.findByPk(req.params.id)
-    if (blogToUpdate) {
-      blogToUpdate.likes = blogToUpdate.likes + 1
-      await blogToUpdate.save()
-      return resp.json({ likes: blogToUpdate.likes })
-    }
-    else {
-      resp.status(404).end()
-    }
+router.put('/:id', blogFinder, async (req, resp, next) => {
+  try{
+    req.blog.likes = req.blog.likes + 1
+    await req.blog.save()
+    return resp.json({ likes: req.blog.likes })
+  }
+  catch(error) {
+    next(error)
+  }
 })
 
-router.post('/', async (req, resp) => {
+router.post('/', async (req, resp, next) => {
     try {
       const blog = await Blog.create(req.body)
       return resp.json(blog)
     } catch (error) {
-      console.log('An error occurred:', error)
-      return resp.status(400)
+      next(error)
     }
 })
 
-router.delete('/:id', async (req, resp) => {
-  const blogToDelete = await Blog.findByPk(req.params.id)
-  console.log(blogToDelete)
-  if (blogToDelete){
-    await blogToDelete.destroy()
+router.delete('/:id', blogFinder, async (req, resp) => {
+  if (req.blog){
+    await req.blog.destroy()
     return resp.status(204).end()
   }
   else{
