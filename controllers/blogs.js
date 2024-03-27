@@ -8,6 +8,18 @@ router.get('/', async (req, resp) => {
   return resp.json(blogs)
 })
 
+router.put('/:id', async (req, resp) => {
+    const blogToUpdate = await Blog.findByPk(req.params.id)
+    if (blogToUpdate) {
+      blogToUpdate.likes = blogToUpdate.likes + 1
+      await blogToUpdate.save()
+      return resp.json({ likes: blogToUpdate.likes })
+    }
+    else {
+      resp.status(404).end()
+    }
+})
+
 router.post('/', async (req, resp) => {
     try {
       const blog = await Blog.create(req.body)
