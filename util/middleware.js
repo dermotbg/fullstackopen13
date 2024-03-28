@@ -6,7 +6,7 @@ const errorHandler = (error, req, resp, next) => {
     return resp.status(404).send({ error: 'Blog not found' })
   }
   if(error.name === 'ValidationError' || error.name === 'SequelizeValidationError') {
-    return resp.status(400).send({ error: 'malformed request' })
+    return resp.status(400).send({ error: error.message })
   }
   next(error)
 }

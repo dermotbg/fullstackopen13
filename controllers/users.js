@@ -7,17 +7,16 @@ router.get('/', async (req, resp) => {
   resp.json(users)
 })
 
-router.post('/', async (req, resp) => {
+router.post('/', async (req, resp, next) => {
   try {
     const user = await User.create(req.body)
     resp.status(204).json(user) 
   } catch (error) {
-    console.error("An error occurred:", error )
-    resp.status(400).json({ error: "Bad request" })
+    next(error)
   }
 })
 
-router.put('/:username', async (req, resp) => {
+router.put('/:username', async (req, resp, next) => {
   try {
     const userToChange = await User.findOne({
       where: {
@@ -28,8 +27,7 @@ router.put('/:username', async (req, resp) => {
     await userToChange.save()
     resp.status(204).json(userToChange)
   } catch (error) {
-    console.error("An error occurred:", error )
-    resp.status(404).json({ error: "User not found" })
+    next(error)
   }
 })
 
