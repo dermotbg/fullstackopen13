@@ -47,3 +47,27 @@ Content-Type: application/json
 }
 
 ###
+
+POST http://localhost:3001/api/blogs
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdCIsImlkIjoyLCJpYXQiOjE3MTE2OTY2NTR9.TcUIU2eMBxVewwVPrQ6awgYrz1synr3OM39VDj7KqFc
+Content-Type: application/json
+
+{
+  "title": "TDD harms architecture",
+  "author": "Robert C. Martin",
+  "url": "http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html"
+    
+}
+
+###
+
+POST http://localhost:3001/api/blogs
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdCIsImlkIjoyLCJpYXQiOjE3MTE2OTY2NTR9.TcUIU2eMBxVewwVPrQ6awgYrz1synr3OM39VDj7KqFc
+Content-Type: application/json
+
+{
+  "title": "Type wars",
+  "author": "Robert C. Martin",
+  "url": "http://blog.cleancoder.com/uncle-bob/2016/05/01/TypeWars.html"
+    
+}
