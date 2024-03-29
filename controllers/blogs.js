@@ -32,10 +32,16 @@ router.post('/', tokenExtractor, async (req, resp) => {
     }
 })
 
-router.delete('/:id', blogFinder, async (req, resp) => {
+router.delete('/:id', blogFinder, tokenExtractor, async (req, resp) => {
   if (req.blog){
-    await req.blog.destroy()
-    return resp.status(204).end()
+    const user = await User.findByPk(req.decodedToken.id)
+    if(user.id === req.blog.userId){
+      await req.blog.destroy()
+      return resp.status(204).end()
+    }
+    else {
+      return resp.status(401).json({ error: 'unauthorized user' })
+    }
   }
   else{
     return resp.status(404).end()
