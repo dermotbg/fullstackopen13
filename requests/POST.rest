@@ -7,3 +7,43 @@ Content-Type: application/json
   "author": "Robert C. Martin",
   "url": "https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html"
 }
+
+###
+
+POST http://localhost:3001/api/blogs
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdCIsImlkIjoyLCJpYXQiOjE3MTE2OTY2NTR9.TcUIU2eMBxVewwVPrQ6awgYrz1synr3OM39VDj7KqFc
+Content-Type: application/json
+
+{
+  "title": "React patterns",
+  "author": "Michael Chan",
+  "url": "https://reactpatterns.com/"
+}
+
+###
+
+POST http://localhost:3001/api/blogs
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdCIsImlkIjoyLCJpYXQiOjE3MTE2OTY2NTR9.TcUIU2eMBxVewwVPrQ6awgYrz1synr3OM39VDj7KqFc
+Content-Type: application/json
+
+{
+  "title": "Go To Statement Considered Harmful",
+  "author": "Edsger W. Dijkstra",
+  "url": "http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html"
+    
+}
+
+###
+
+POST http://localhost:3001/api/blogs
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdCIsImlkIjoyLCJpYXQiOjE3MTE2OTY2NTR9.TcUIU2eMBxVewwVPrQ6awgYrz1synr3OM39VDj7KqFc
+Content-Type: application/json
+
+{
+  "title": "Canonical string reduction",
+  "author": "Edsger W. Dijkstra",
+  "url": "http://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD808.html"
+    
+}
+
+###
