@@ -42,6 +42,11 @@ module.exports = {
         }
       },
     })
+    await queryInterface.addColumn('blogs', 'user_id', {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: { model: 'users', key: 'id' }
+    })
     await queryInterface.addColumn('blogs', 'created_at', DataTypes.DATE)
     await queryInterface.addColumn('blogs', 'updated_at', DataTypes.DATE)
     await queryInterface.addColumn('users', 'created_at', DataTypes.DATE)

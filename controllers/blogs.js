@@ -48,11 +48,18 @@ router.put('/:id', blogFinder, async (req, resp, next) => {
 router.post('/', tokenExtractor, async (req, resp) => {
     try {
       const user = await User.findByPk(req.decodedToken.id)
+
+      if(req.body.year < 1991 || req.body.year > 2024 ) {
+        return resp.status(401).json({ error: 'Year must be between 1991 and 2024' })
+      }
+
       const blog = await Blog.create({
         ...req.body,
         userId: user.id,
       })
+
       return resp.json(blog)
+
     } catch (error) {
       return resp.status(400).json({ error: error })
     }

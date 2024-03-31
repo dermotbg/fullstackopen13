@@ -1,11 +1,12 @@
 POST http://localhost:3001/api/blogs
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdCIsImlkIjoyLCJpYXQiOjE3MTE2OTY2NTR9.TcUIU2eMBxVewwVPrQ6awgYrz1synr3OM39VDj7KqFc
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdEBuZXdlbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzExODc0MjY3fQ.IQhgD5miYgsTkJl2z-K_oYdb5wlZtlUpALcZNB3tSaw
 Content-Type: application/json
 
 {
   "title": "First class tests",
   "author": "Robert C. Martin",
-  "url": "https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html"
+  "url": "https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html",
+  "year": "1989"
 }
 
 ###
