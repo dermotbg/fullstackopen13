@@ -9,11 +9,11 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3001/api/users/dermot
+PUT http://localhost:3001/api/users/notDermot@mail.com
 Content-Type: application/json
 
 {
-  "username": "dermot2007"
+  "username": "dermot@newemail.com"
 }
 
 ###
