@@ -5,3 +5,10 @@ Content-Type: application/json
   "blogId": 2,
   "userId": 3
 }
+###
+PUT http://localhost:3001/api/readinglists/5
+Content-Type: application/json
+
+{
+  "read": true
+}
