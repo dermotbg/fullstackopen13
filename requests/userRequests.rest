@@ -2,7 +2,7 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-  "username": "dermot@newemail.com@mail.com",
+  "username": "dermot@neweremail.com",
   "password": "secret",
   "name": "notDermy notDermerson"
 }
@@ -22,6 +22,6 @@ POST http://localhost:3001/api/login
 Content-Type: application/json
 
 {
-  "username": "dermot@newemail.com",
+  "username": "dermot@neweremail.com",
   "password": "secret"
 }
