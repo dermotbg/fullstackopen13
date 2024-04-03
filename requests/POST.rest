@@ -12,25 +12,27 @@ Content-Type: application/json
 ###
 
 POST http://localhost:3001/api/blogs
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdCIsImlkIjoyLCJpYXQiOjE3MTE2OTY2NTR9.TcUIU2eMBxVewwVPrQ6awgYrz1synr3OM39VDj7KqFc
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdEBuZXdlbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzEyMTE5Njg5fQ.WJGI7Kh8ng071oCe3p7mOA5oLgJouJNcFzyu4OjOXog
 Content-Type: application/json
 
 {
   "title": "React patterns",
   "author": "Michael Chan",
-  "url": "https://reactpatterns.com/"
+  "url": "https://reactpatterns.com/",
+  "year": "1999"
 }
 
 ###
 
 POST http://localhost:3001/api/blogs
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdCIsImlkIjoyLCJpYXQiOjE3MTE2OTY2NTR9.TcUIU2eMBxVewwVPrQ6awgYrz1synr3OM39VDj7KqFc
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdEBuZXdlbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzEyMTE5Njg5fQ.WJGI7Kh8ng071oCe3p7mOA5oLgJouJNcFzyu4OjOXog
 Content-Type: application/json
 
 {
   "title": "Go To Statement Considered Harmful",
   "author": "Edsger W. Dijkstra",
-  "url": "http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html"
+  "url": "http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html",
+  "year": "1991"
     
 }
 
