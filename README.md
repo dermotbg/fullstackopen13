@@ -16,5 +16,5 @@ Run docker compose from root
 ```
 docker compose -f docker-compose-dev.yml up
 ```
-git 
+
 Server runs on localhost:3001
