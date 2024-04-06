@@ -1,4 +1,4 @@
--- excersie 13.2
+-- excercise 13.2
 CREATE TABLE blogs (
   id SERIAL PRIMARY KEY,
   author TEXT,
