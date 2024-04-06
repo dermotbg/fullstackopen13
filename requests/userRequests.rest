@@ -25,3 +25,7 @@ Content-Type: application/json
   "username": "dermot@neweremail.com",
   "password": "secret"
 }
+
+###
+DELETE http://localhost:3001/api/logout
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdEBuZXdlcmVtYWlsLmNvbSIsImlkIjozLCJpYXQiOjE3MTIzODE1MTZ9.G8xEYJy9fNCnllaNYZ8evPOQV-5NT20DshAFjsJi3tQ

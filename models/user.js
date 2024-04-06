@@ -20,6 +20,10 @@ User.init({
       isEmail: true
     }
   },
+  disabled: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: true
+  }
 }, {
   sequelize,
   modelName: 'user',

@@ -2,7 +2,7 @@ const router = require('express').Router()
 const { Op } = require('sequelize')
 
 const { Blog, User } = require('../models')
-const { blogFinder, tokenExtractor } = require('../util/middleware')
+const { blogFinder, tokenExtractor, sessionValidator } = require('../util/middleware')
 
 router.get('/', async (req, resp) => {
 
@@ -34,23 +34,28 @@ router.get('/', async (req, resp) => {
   return resp.json(blogs)
 })
 
-router.put('/:id', blogFinder, async (req, resp, next) => {
-  try{
-    req.blog.likes = req.blog.likes + 1
-    await req.blog.save()
-    return resp.json({ likes: req.blog.likes })
+router.put('/:id', blogFinder, tokenExtractor, sessionValidator, async (req, resp, next) => {
+  if(req.sessionValid) {
+    try {
+      req.blog.likes = req.blog.likes + 1
+      await req.blog.save()
+      return resp.json({ likes: req.blog.likes })
   }
-  catch(error) {
-    next(error)
+    catch(error) {
+      next(error)
+    }
+  } else {
+    return resp.status(401).json({ error: 'Unauthorized, please log in' })
   }
 })
 
-router.post('/', tokenExtractor, async (req, resp) => {
+router.post('/', tokenExtractor, sessionValidator, async (req, resp, next) => {
+  if(req.sessionValid) {
     try {
       const user = await User.findByPk(req.decodedToken.id)
 
       if(req.body.year < 1991 || req.body.year > 2024 ) {
-        return resp.status(401).json({ error: 'Year must be between 1991 and 2024' })
+        return resp.status(400).json({ error: 'Year must be between 1991 and 2024' })
       }
 
       const blog = await Blog.create({
@@ -61,12 +66,16 @@ router.post('/', tokenExtractor, async (req, resp) => {
       return resp.json(blog)
 
     } catch (error) {
-      return resp.status(400).json({ error: error })
+      next(error)
     }
+  }
+  else {
+    return resp.status(401).json({ error: 'Unauthorized, please log in' })
+  }
 })
 
-router.delete('/:id', blogFinder, tokenExtractor, async (req, resp) => {
-  if (req.blog){
+router.delete('/:id', blogFinder, tokenExtractor, sessionValidator, async (req, resp) => {
+  if (req.blog && req.sessionValid){
     const user = await User.findByPk(req.decodedToken.id)
     if(user.id === req.blog.userId){
       await req.blog.destroy()
@@ -77,7 +86,9 @@ router.delete('/:id', blogFinder, tokenExtractor, async (req, resp) => {
     }
   }
   else{
-    return resp.status(404).end()
+    return !req.blog 
+      ? resp.status(404).end() 
+      : resp.status(401).json({ error: 'Unauthorized, please log in' })
   }
 })
 

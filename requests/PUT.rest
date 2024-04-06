@@ -1,1 +1,2 @@
-PUT http://localhost:3001/api/blogs/13
+PUT http://localhost:3001/api/blogs/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdEBuZXdlcmVtYWlsLmNvbSIsImlkIjozLCJpYXQiOjE3MTIzODA5MTB9.nyR3E4MTFmHGpUY-mkuYhGvA94KQvmffR7FCWCSjlAI
