@@ -1,14 +1,17 @@
 POST http://localhost:3001/api/readinglists
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdEBuZXdlbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzEyMzgzMTIyfQ.q3lcTg3Kfdpo0DxDO_ei_tkGwxd4OdAzZztHwBxRDl8
 
 {
-  "blogId": 2,
+  "blogId": 4,
   "userId": 3
 }
+
 ###
-PUT http://localhost:3001/api/readinglists/5
+PUT http://localhost:3001/api/readinglists/8
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlcm1vdEBuZXdlbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzEyMzgzMTIyfQ.q3lcTg3Kfdpo0DxDO_ei_tkGwxd4OdAzZztHwBxRDl8
 
 {
-  "read": true
+  "read": false
 }
